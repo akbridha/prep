@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2 Vocabulary Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        /* Screen visibility */
+        .screen {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Landing Page */
+        .landing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .landing-card h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .landing-card .subtitle {
+            font-size: 1.2rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .landing-card p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .landing-card .info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .landing-card .info-item {
+            text-align: center;
+        }
+
+        .landing-card .info-item .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .landing-card .info-item .label {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .btn {
+            padding: 15px 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Quiz Screen */
+        .quiz-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .question-counter {
+            font-size: 1rem;
+            color: #888;
+        }
+
+        .score-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .question-text {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .option-btn {
+            width: 100%;
+            padding: 18px 25px;
+            font-size: 1rem;
+            text-align: left;
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .option-btn:hover:not(.disabled) {
+            border-color: #667eea;
+            background: #f0f2ff;
+            transform: translateX(5px);
+        }
+
+        .option-btn.disabled {
+            cursor: not-allowed;
+        }
+
+        .option-btn.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option-btn.wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .option-btn .option-letter {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: 600;
+        }
+
+        .option-btn.correct .option-letter {
+            background: #28a745;
+        }
+
+        .option-btn.wrong .option-letter {
+            background: #dc3545;
+        }
+
+        .feedback-area {
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .feedback-area.show {
+            display: block;
+        }
+
+        .feedback-area.correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .feedback-area.wrong {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .feedback-area .feedback-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .feedback-area .feedback-text {
+            font-weight: 600;
+        }
+
+        .quiz-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-next {
+            display: none;
+            padding: 12px 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-next.show {
+            display: inline-block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Results Screen */
+        .results-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .results-header h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            color: white;
+        }
+
+        .score-circle .score-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .score-circle .score-label {
+            font-size: 0.9rem;
+        }
+
+        .score-message {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .review-section {
+            margin-top: 30px;
+        }
+
+        .review-section h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .review-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .review-item {
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .review-item.correct {
+            background: #f8fff9;
+            border-color: #c3e6cb;
+        }
+
+        .review-item.wrong {
+            background: #fff8f8;
+            border-color: #f5c6cb;
+        }
+
+        .review-item .review-question {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .review-item .review-answer {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .review-item .review-answer span {
+            font-weight: 600;
+        }
+
+        .review-item .review-answer .correct-answer {
+            color: #28a745;
+        }
+
+        .review-item .review-answer .wrong-answer {
+            color: #dc3545;
+        }
+
+        .results-footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Scrollbar styling */
+        .review-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .review-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .review-list::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .landing-card {
+                padding: 40px 25px;
+            }
+
+            .landing-card h1 {
+                font-size: 1.8rem;
+            }
+
+            .quiz-card, .results-card {
+                padding: 25px;
+            }
+
+            .question-text {
+                font-size: 1.2rem;
+            }
+
+            .option-btn {
+                padding: 15px 20px;
+                font-size: 0.95rem;
+            }
+
+            .landing-card .info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Landing Screen -->
+        <div id="landing-screen" class="screen active">
+            <div class="landing-card">
+                <h1>B2 Vocabulary Quiz</h1>
+                <p class="subtitle">Upper-Intermediate English</p>
+                <p>Test your English vocabulary knowledge with 50 challenging questions designed for B2 level learners. Choose the correct answer and get instant feedback!</p>
+                <div class="info">
+                    <div class="info-item">
+                        <div class="number">50</div>
+                        <div class="label">Questions</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="number">4</div>
+                        <div class="label">Options Each</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="number">∞</div>
+                        <div class="label">Time Limit</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="startQuiz()">Start Quiz</button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-card">
+                <div class="quiz-header">
+                    <span class="question-counter">Question <span id="current-question">1</span> of <span id="total-questions">50</span></span>
+                    <span class="score-display">Score: <span id="current-score">0</span></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="question-text" id="question-text"></div>
+                <div class="options-container" id="options-container"></div>
+                <div class="feedback-area" id="feedback-area">
+                    <span class="feedback-icon" id="feedback-icon"></span>
+                    <span class="feedback-text" id="feedback-text"></span>
+                </div>
+                <div class="quiz-footer">
+                    <button class="btn-next" id="btn-next" onclick="nextQuestion()">Next →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-card">
+                <div class="results-header">
+                    <h2>Quiz Complete!</h2>
+                    <div class="score-circle">
+                        <span class="score-number" id="final-score">0</span>
+                        <span class="score-label">out of 50</span>
+                    </div>
+                    <p class="score-message" id="score-message"></p>
+                </div>
+                <div class="review-section">
+                    <h3>📝 Review Your Answers</h3>
+                    <div class="review-list" id="review-list"></div>
+                </div>
+                <div class="results-footer">
+                    <button class="btn btn-primary" onclick="restartQuiz()">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
