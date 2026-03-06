@@ -1,1 +1,1 @@
-# Webbased to train ur self from mobile app
+# Webbased to train ur self from mobile browser app
