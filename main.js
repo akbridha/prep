@@ -105,10 +105,100 @@ const questionBank = [
     { question: "The antonym of 'abstract' is:", options: ["Theoretical", "Concrete", "Vague", "Conceptual"], correctAnswer: 1 }
 ];
 
+// Light Mode Question Bank (Definition-focused) — 75 questions (5 batches × 15)
+const lightModeQuestionBank = [
+    // --- Batch 1 (15 questions) ---
+    { question: "What does 'meticulous' mean?", options: ["Careless and sloppy", "Extremely careful and precise", "Fast and efficient", "Lazy and unmotivated"], correctAnswer: 1, batch: 1 },
+    { question: "What does 'ubiquitous' mean?", options: ["Very rare", "Present everywhere", "Invisible", "Ancient and old"], correctAnswer: 1, batch: 1 },
+    { question: "What does 'pragmatic' mean?", options: ["Idealistic and dreamy", "Practical and realistic", "Romantic", "Philosophical"], correctAnswer: 1, batch: 1 },
+    { question: "What does 'scrutinize' mean?", options: ["To ignore completely", "To examine very closely", "To approve quickly", "To reject immediately"], correctAnswer: 1, batch: 1 },
+    { question: "What does 'resilient' mean?", options: ["Fragile and weak", "Able to recover quickly", "Sensitive and delicate", "Permanent"], correctAnswer: 1, batch: 1 },
+    { question: "What does 'mitigate' mean?", options: ["To make worse", "To ignore", "To make less severe", "To create"], correctAnswer: 2, batch: 1 },
+    { question: "What does 'procrastinate' mean?", options: ["To act immediately", "To delay or postpone", "To plan carefully", "To work efficiently"], correctAnswer: 1, batch: 1 },
+    { question: "What does 'unprecedented' mean?", options: ["Common occurrence", "Expected", "Never done before", "Repeated often"], correctAnswer: 2, batch: 1 },
+    { question: "What does 'eloquent' mean?", options: ["Unable to speak", "Fluent and persuasive in speaking", "Confused", "Quiet"], correctAnswer: 1, batch: 1 },
+    { question: "What does 'feasible' mean?", options: ["Impossible to do", "Possible and practical", "Very difficult", "Unlikely"], correctAnswer: 1, batch: 1 },
+    { question: "What does 'exacerbate' mean?", options: ["To improve", "To make worse", "To solve", "To ignore"], correctAnswer: 1, batch: 1 },
+    { question: "What does 'inevitable' mean?", options: ["Can be avoided", "Certain to happen", "Unlikely", "Preventable"], correctAnswer: 1, batch: 1 },
+    { question: "What does 'comprehensive' mean?", options: ["Limited and partial", "Incomplete", "Complete and thorough", "Brief"], correctAnswer: 2, batch: 1 },
+    { question: "What does 'consolidate' mean?", options: ["To divide", "To combine into one whole", "To separate", "To scatter"], correctAnswer: 1, batch: 1 },
+    { question: "What does 'simultaneous' mean?", options: ["One after another", "Happening at the same time", "Consecutive", "Delayed"], correctAnswer: 1, batch: 1 },
+
+    // --- Batch 2 (15 questions) ---
+    { question: "What does 'deteriorate' mean?", options: ["To improve", "To become worse", "To stay the same", "To recover"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'advocate' mean?", options: ["To oppose", "To support publicly", "To criticize", "To ignore"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'redundant' mean?", options: ["Essential", "Necessary", "No longer needed", "Important"], correctAnswer: 2, batch: 2 },
+    { question: "What does 'alleviate' mean?", options: ["To increase", "To make less severe", "To cause", "To ignore"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'diligent' mean?", options: ["Lazy", "Hardworking and careful", "Careless", "Slow"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'compelling' mean?", options: ["Boring", "Powerfully convincing", "Weak", "Uninteresting"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'impartial' mean?", options: ["Biased", "Unfair", "Fair and neutral", "Prejudiced"], correctAnswer: 2, batch: 2 },
+    { question: "What does 'undermine' mean?", options: ["To strengthen", "To weaken gradually", "To support", "To build up"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'coherent' mean?", options: ["Confusing", "Logical and consistent", "Random", "Chaotic"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'fluctuate' mean?", options: ["To remain stable", "To rise and fall irregularly", "To stay constant", "To be fixed"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'intricate' mean?", options: ["Simple", "Very complicated", "Easy", "Basic"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'implement' mean?", options: ["To reject", "To put into action", "To ignore", "To delay"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'tentative' mean?", options: ["Definite", "Not certain or fixed", "Final", "Confirmed"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'substantial' mean?", options: ["Very small", "Large in amount", "Tiny", "Minimal"], correctAnswer: 1, batch: 2 },
+    { question: "What does 'detrimental' mean?", options: ["Beneficial", "Helpful", "Harmful", "Positive"], correctAnswer: 2, batch: 2 },
+
+    // --- Batch 3 (15 questions) ---
+    { question: "What does 'refute' mean?", options: ["To support", "To prove wrong", "To accept", "To ignore"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'plausible' mean?", options: ["Impossible", "Seeming reasonable", "Absurd", "Ridiculous"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'benevolent' mean?", options: ["Cruel", "Kind and generous", "Selfish", "Indifferent"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'condemn' mean?", options: ["To praise", "To express strong disapproval", "To support", "To admire"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'affluent' mean?", options: ["Poor", "Wealthy and prosperous", "Modest", "Average"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'comply' mean?", options: ["To disobey", "To act according to a rule", "To ignore", "To challenge"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'endorse' mean?", options: ["To reject", "To declare support for", "To criticize", "To ban"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'reluctant' mean?", options: ["Eager", "Unwilling and hesitant", "Excited", "Enthusiastic"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'diminish' mean?", options: ["To increase", "To make smaller", "To expand", "To grow"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'enhance' mean?", options: ["To worsen", "To improve or intensify", "To maintain", "To destroy"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'notorious' mean?", options: ["Famous for good deeds", "Famous for bad reasons", "Unknown", "Forgettable"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'perceive' mean?", options: ["To ignore", "To become aware of", "To forget", "To deny"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'allocate' mean?", options: ["To waste", "To distribute for a purpose", "To collect randomly", "To hoard"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'persistent' mean?", options: ["Giving up easily", "Continuing firmly", "Lazy", "Indecisive"], correctAnswer: 1, batch: 3 },
+    { question: "What does 'suppress' mean?", options: ["To reveal", "To prevent from being known", "To publish", "To broadcast"], correctAnswer: 1, batch: 3 },
+
+    // --- Batch 4 (15 questions) ---
+    { question: "What does 'ambivalent' mean?", options: ["Very certain", "Having mixed feelings", "Decisive", "Confident"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'accumulate' mean?", options: ["To scatter", "To gather over time", "To distribute", "To lose"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'concede' mean?", options: ["To deny", "To admit or surrender", "To refuse", "To fight"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'depict' mean?", options: ["To hide", "To represent or show", "To erase", "To conceal"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'indispensable' mean?", options: ["Unnecessary", "Absolutely necessary", "Optional", "Replaceable"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'revoke' mean?", options: ["To grant", "To officially cancel", "To extend", "To issue"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'spontaneous' mean?", options: ["Carefully planned", "Done without planning", "Delayed", "Rehearsed"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'versatile' mean?", options: ["Limited", "Adaptable to many uses", "Rigid", "Inflexible"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'chronic' mean?", options: ["Temporary", "Persisting for a long time", "Brief", "Acute"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'speculate' mean?", options: ["To know for certain", "To form theories without evidence", "To prove", "To confirm"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'prevalent' mean?", options: ["Rare", "Widespread and common", "Uncommon", "Unusual"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'elicit' mean?", options: ["To hide", "To draw out a response", "To suppress", "To conceal"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'erratic' mean?", options: ["Consistent", "Unpredictable and irregular", "Steady", "Regular"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'authentic' mean?", options: ["Fake", "Genuine and real", "Counterfeit", "Artificial"], correctAnswer: 1, batch: 4 },
+    { question: "What does 'relinquish' mean?", options: ["To seize", "To voluntarily give up", "To strengthen", "To demand"], correctAnswer: 1, batch: 4 },
+
+    // --- Batch 5 (15 questions) ---
+    { question: "What does 'futile' mean?", options: ["Productive", "Incapable of producing results", "Effective", "Successful"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'clarify' mean?", options: ["To obscure", "To make clear", "To confuse", "To complicate"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'ambiguous' mean?", options: ["Very clear", "Open to multiple interpretations", "Obvious", "Precise"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'superficial' mean?", options: ["Deep", "Existing on the surface only", "Profound", "Thorough"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'controversial' mean?", options: ["Widely agreed upon", "Causing disagreement", "Accepted", "Popular"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'conventional' mean?", options: ["Unusual", "Following accepted customs", "Innovative", "Revolutionary"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'lucid' mean?", options: ["Confusing", "Clear and easy to understand", "Complicated", "Unclear"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'obsolete' mean?", options: ["Modern", "No longer in use", "Current", "Up-to-date"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'legitimate' mean?", options: ["Illegal", "Conforming to rules", "Fake", "False"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'subsequent' mean?", options: ["Previous", "Coming after", "Simultaneous", "Initial"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'adjacent' mean?", options: ["Distant", "Next to or adjoining", "Remote", "Far"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'transparent' mean?", options: ["Opaque", "Easy to see through", "Hidden", "Obscure"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'diverse' mean?", options: ["Uniform", "Showing variety", "Same", "Identical"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'unanimous' mean?", options: ["Divided", "Fully agreed by all", "Partial", "Disagreed"], correctAnswer: 1, batch: 5 },
+    { question: "What does 'concise' mean?", options: ["Long and wordy", "Brief and clear", "Rambling", "Verbose"], correctAnswer: 1, batch: 5 }
+];
+
 // --- Configuration ---
 const QUESTIONS_PER_SESSION = 20;
 
 // --- Quiz State ---
+let isLightMode = false;
+let selectedBatch = null;
 let activeQuestions = [];
 let currentQuestionIndex = 0;
 let score = 0;
@@ -117,6 +207,7 @@ let answered = false;
 
 // --- DOM Elements ---
 const landingScreen = document.getElementById('landing-screen');
+const batchSelectionScreen = document.getElementById('batch-selection-screen');
 const quizScreen = document.getElementById('quiz-screen');
 const resultsScreen = document.getElementById('results-screen');
 const questionText = document.getElementById('question-text');
@@ -129,6 +220,8 @@ const feedbackArea = document.getElementById('feedback-area');
 const feedbackIcon = document.getElementById('feedback-icon');
 const feedbackText = document.getElementById('feedback-text');
 const btnNext = document.getElementById('btn-next');
+const toggleSlider = document.getElementById('toggle-slider');
+const modeText = document.getElementById('mode-text');
 
 // Initialize display
 totalQuestionsSpan.textContent = QUESTIONS_PER_SESSION;
@@ -149,8 +242,34 @@ function pickRandomQuestions(bank, count) {
     return shuffled.slice(0, count);
 }
 
+// --- Toggle Quiz Mode ---
+function toggleQuizMode() {
+    isLightMode = !isLightMode;
+    const toggleSwitch = toggleSlider.parentElement;
+    
+    if (isLightMode) {
+        toggleSwitch.classList.add('active');
+        modeText.textContent = 'Light Mode';
+    } else {
+        toggleSwitch.classList.remove('active');
+        modeText.textContent = 'Default';
+    }
+}
+
 // --- Start Quiz ---
 function startQuiz() {
+    if (isLightMode) {
+        // Go to batch selection for light mode
+        landingScreen.classList.remove('active');
+        batchSelectionScreen.classList.add('active');
+    } else {
+        // Start default mode quiz directly
+        startDefaultQuiz();
+    }
+}
+
+// --- Start Default Mode Quiz ---
+function startDefaultQuiz() {
     activeQuestions = pickRandomQuestions(questionBank, QUESTIONS_PER_SESSION);
     currentQuestionIndex = 0;
     score = 0;
@@ -161,9 +280,56 @@ function startQuiz() {
     totalQuestionsSpan.textContent = QUESTIONS_PER_SESSION;
 
     landingScreen.classList.remove('active');
+    batchSelectionScreen.classList.remove('active');
     quizScreen.classList.add('active');
 
     showQuestion();
+}
+
+// --- Select Batch (Light Mode) ---
+function selectBatch(batchNumber) {
+    selectedBatch = batchNumber;
+    startLightModeQuiz();
+}
+
+// --- Start Light Mode Quiz ---
+function startLightModeQuiz() {
+    // Filter questions by selected batch
+    const batchQuestions = lightModeQuestionBank.filter(q => q.batch === selectedBatch);
+    
+    // Pick 20 random questions from the batch (batch has 15, so this will repeat some)
+    // Actually, since each batch has 15 questions, we'll pick all 15 and add 5 more randomly
+    const shuffled = shuffleArray(batchQuestions);
+    activeQuestions = shuffled.slice(0, Math.min(QUESTIONS_PER_SESSION, shuffled.length));
+    
+    // If we need more questions to reach 20, add random ones from the same batch
+    while (activeQuestions.length < QUESTIONS_PER_SESSION) {
+        const randomQuestion = batchQuestions[Math.floor(Math.random() * batchQuestions.length)];
+        activeQuestions.push(randomQuestion);
+    }
+    
+    // Shuffle the final set
+    activeQuestions = shuffleArray(activeQuestions);
+    
+    currentQuestionIndex = 0;
+    score = 0;
+    userAnswers = [];
+    answered = false;
+
+    currentScoreSpan.textContent = 0;
+    totalQuestionsSpan.textContent = QUESTIONS_PER_SESSION;
+
+    batchSelectionScreen.classList.remove('active');
+    quizScreen.classList.add('active');
+
+    showQuestion();
+}
+
+// --- Back to Landing ---
+function backToLanding() {
+    batchSelectionScreen.classList.remove('active');
+    landingScreen.classList.add('active');
+    selectedBatch = null;
 }
 
 // --- Show Question ---
